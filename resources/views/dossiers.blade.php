@@ -58,6 +58,7 @@
                     <th scope="col">Nom</th>
                     <th scope="col">Prénom</th>
                     <th scope="col">Agence</th>
+                    <th scope="col">Agence CP</th>
                     <th scope="col">Date de création</th>
                   </tr>
                 </thead>
@@ -68,7 +69,8 @@
                       <td>{{$dossier->d_nom}}</td>
                       <td>{{$dossier->d_prenom}}</td>
                       <td>{{$dossier->agences->ag_nom}}</td>
-                      <td>{{$dossier->created_at}}</td>
+                      <td>{{$dossier->agences->ag_cp}}</td>
+                      <td>{{$dossier->created_at->format('d/m/Y') }}</td>
                     </tr> 
                   @endforeach
                 </tbody>
