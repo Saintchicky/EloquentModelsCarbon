@@ -13,3 +13,5 @@
 
 Route::get('/', 'TestController@index');
 Route::post('/store', 'TestController@store')->name('store.dossier');
+Route::get('/{d_id}/softDelete', 'TestController@softdelete')->name('softDelete.dossier');
+Route::get('/{d_id}/restore', 'TestController@restoreSoftdelete')->name('restore.dossier');

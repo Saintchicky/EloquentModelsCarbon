@@ -49,7 +49,9 @@
             </div>
         </div>
         <br>
+        <h2 class="text-center">Table Sans Soft Delete</h2>
         <div class="row justify-content-md-center">
+          
             <div class="col-md-8">
               <table class="table table-bordered">
                 <thead class="thead-dark">
@@ -60,6 +62,7 @@
                     <th scope="col">Agence</th>
                     <th scope="col">Agence CP</th>
                     <th scope="col">Date de création</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -70,13 +73,46 @@
                       <td>{{$dossier->d_prenom}}</td>
                       <td>{{$dossier->agences->ag_nom}}</td>
                       <td>{{$dossier->agences->ag_cp}}</td>
-                      <td>{{$dossier->created_at->format('d/m/Y') }}</td>
+                      <td>{{$dossier->d_created_at->format('d/m/Y') }}</td>
+                    <td><a class="btn btn-outline-danger" href="{{route('softDelete.dossier',$dossier->d_id)}}" role="button" type="submit">Soft Delete</a></td>
                     </tr> 
                   @endforeach
                 </tbody>
               </table>
             </div>
         </div>
+        <h2 class="text-center">Table Avec Soft Delete</h2>
+        <div class="row justify-content-md-center">
+        
+          <div class="col-md-8">
+            <table class="table table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Prénom</th>
+                  <th scope="col">Agence</th>
+                  <th scope="col">Agence CP</th>
+                  <th scope="col">Date de création</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($dossiers_soft_delete as $dossier)
+                  <tr>
+                    <th scope="row">{{$dossier->d_id}}</th>
+                    <td>{{$dossier->d_nom}}</td>
+                    <td>{{$dossier->d_prenom}}</td>
+                    <td>{{$dossier->agences->ag_nom}}</td>
+                    <td>{{$dossier->agences->ag_cp}}</td>
+                    <td>{{$dossier->d_created_at->format('d/m/Y') }}</td>
+                    <td><a class="btn btn-outline-success" href="{{route('restore.dossier',$dossier->d_id)}}" role="button" type="submit">Réactiver</a></td>
+                  </tr> 
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+      </div>
     </div>
           <script src="{{ asset('js/app.js') }}" type="text/js"></script>
     </body>
