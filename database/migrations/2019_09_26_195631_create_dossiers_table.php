@@ -14,13 +14,13 @@ class CreateDossiersTable extends Migration
     public function up()
     {
         Schema::create('dossiers', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('d_nb_adultes');
-            $table->integer('d_nb_enfants');
-            $table->string('d_code');
+            $table->bigIncrements('d_id');
+            $table->string('d_nom');
+            $table->string('d_prenom');
             $table->unsignedBigInteger('d_agence_id')->nullable();
             $table->foreign('d_agence_id')->references('ag_id')->on('agences')->onDelete('set null');
-            $table->timestamps();
+            $table->timestamp('d_created_at')->nullable();
+            $table->timestamp('d_updated_at')->nullable();
         });
     }
 

@@ -1,0 +1,9 @@
+1. Créer une base eloquentcarbon ds php my admin
+2. Cloner le projet
+3. Faire un composer update
+4. copier coller .env.exemple et renommer en .env
+5. Renseigner le nom de la base de donnée et mdp
+6. Faire un 'php artisan key:generate' pour générer une clé projet
+7. Faire un 'php artisan migrate' (si première fois pour créer les tables)
+8. 'php artisan db:seed --class=AgencesTableSeeder' pour insérer des données ds la table AgencesTableSeeder
+9. php artisan serve pour lancer l'application

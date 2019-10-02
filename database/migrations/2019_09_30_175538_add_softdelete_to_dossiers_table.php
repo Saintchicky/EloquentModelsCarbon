@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddVotesToDossiersTable extends Migration
+class AddSoftdeleteToDossiersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddVotesToDossiersTable extends Migration
     public function up()
     {
         Schema::table('dossiers', function (Blueprint $table) {
-            $table->softDeletes(); 
+            $table->softDeletes('d_deleted_at'); 
         });
     }
 
@@ -26,7 +26,7 @@ class AddVotesToDossiersTable extends Migration
     public function down()
     {
         Schema::table('dossiers', function (Blueprint $table) {
-            $table->softDeletes(); 
+            $table->softDeletes('d_deleted_at'); 
         });
     }
 }

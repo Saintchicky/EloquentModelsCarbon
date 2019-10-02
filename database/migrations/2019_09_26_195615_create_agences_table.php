@@ -16,7 +16,9 @@ class CreateAgencesTable extends Migration
         Schema::create('agences', function (Blueprint $table) {
             $table->bigIncrements('ag_id');
             $table->string('ag_nom');
-            $table->timestamps();
+            $table->string('ag_cp');
+            $table->timestamp('ag_created_at')->nullable();
+            $table->timestamp('ag_updated_at')->nullable();
         });
     }
 
