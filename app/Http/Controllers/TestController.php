@@ -9,7 +9,14 @@ use Carbon\Carbon;
 
 class TestController extends Controller
 {
-    public function index()
+    public function showBelongsTo()
+    {
+        $agences = Agences::all();
+        //Liste des dossiers sans les softDeletes
+        $dossiers = Dossiers::all();
+        return view('belongsto',compact('agences','dossiers'));
+    }
+    public function showSoftDelete()
     {
         $agences = Agences::all();
         //Liste des dossiers sans les softDeletes
@@ -30,8 +37,9 @@ class TestController extends Controller
         $dossier = Dossiers::destroy($d_id);
         return back();
     }
-    public function restoreSoftdelete($d_id)
+    public function restore($d_id)
     {
+        //Appel seulement les sofDelete
         $dossier = Dossiers::onlyTrashed()->find($d_id);
         $dossier->restore();
         return back();

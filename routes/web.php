@@ -10,8 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/',function(){
+    return view ('home');
+})->name('home');
 
-Route::get('/', 'TestController@index');
-Route::post('/store', 'TestController@store')->name('store.dossier');
-Route::get('/{d_id}/softDelete', 'TestController@softdelete')->name('softDelete.dossier');
-Route::get('/{d_id}/restore', 'TestController@restoreSoftdelete')->name('restore.dossier');
+Route::get('/softDelete', 'TestController@showSoftDelete')->name('show.softdelete');
+Route::post('/softDelete/store', 'TestController@store')->name('store.softdelete');
+Route::get('/{d_id}/softDelete', 'TestController@softdelete')->name('delete.softdelete');
+Route::get('/{d_id}/restore', 'TestController@restore')->name('restore.softdelete');
+
+
+Route::get('/belongsto','TestController@showBelongsTo')->name('show.belongsto');
