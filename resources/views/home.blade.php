@@ -31,6 +31,7 @@
             <div class="card-body">
               <h5 class="card-title">Formater et traitement des dates</h5>
               <p class="card-text">Permet de reformater une date, de faire des comparaisons et d'autres fonctions</p>
+              <p class="card-text">En bonus, Accessor et Mutator</p>
               <a class="btn btn-outline-primary" href="{{route('show.carbon')}}" role="button" type="submit">Voir Carbon</a>
             </div>
         </div>

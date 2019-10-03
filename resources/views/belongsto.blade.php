@@ -55,8 +55,7 @@
                         </p>
                         <p class="card-text">
                           <p>
-      
-                            <a class="btn btn-outline-primary" href="vscode://file/C:\Users\lmaltret\Documents\EloquentModelsCarbon\app\Dossiers.php:32" role="button" type="submit">Voir Model Dossier</a>
+                            <a class="btn btn-outline-primary" href="vscode://file/C:\Users\lmaltret\Documents\EloquentModelsCarbon\app\Dossiers.php:25" role="button" type="submit">Voir Model Dossier</a>
                           </p>
                           @include('dump.dd',[
                             'collections'=>$dossiers

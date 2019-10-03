@@ -79,7 +79,7 @@
                 <th scope="col">Prénom</th>
                 <th scope="col">Agence</th>
                 <th scope="col">Agence CP</th>
-                <th scope="col">Date de création</th>
+                <th scope="col">Effacer le</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -91,7 +91,7 @@
                   <td>{{$dossier->d_prenom}}</td>
                   <td>{{$dossier->agences->ag_nom}}</td>
                   <td>{{$dossier->agences->ag_cp}}</td>
-                  <td>{{$dossier->d_created_at->format('d/m/Y') }}</td>
+                  <td>{{$dossier->d_deleted_at->format('d/m/Y h:00') }}</td>
                   <td><a class="btn btn-outline-success" href="{{route('restore.softdelete',$dossier->d_id)}}" role="button" type="submit">Réactiver</a></td>
                 </tr> 
               @endforeach

@@ -16,6 +16,7 @@ class TestController extends Controller
         $dossiers = Dossiers::all();
         //Liste des dossiers avec les softDeletes
         $dossiers_soft_delete =  Dossiers::onlyTrashed()->get();
+        // Equivalent du render du twig
         return view('dossiers',compact('agences','dossiers','dossiers_soft_delete'));
     }
     public function showBelongsTo()
@@ -24,6 +25,18 @@ class TestController extends Controller
         //Liste des dossiers sans les softDeletes
         $dossiers = Dossiers::all();
         return view('belongsto',compact('agences','dossiers'));
+    }
+    public function showCarbon()
+    {
+        $agences = Agences::all();
+        //Liste des dossiers sans les softDeletes
+        $dossiers = Dossiers::all();
+        $dossier = Dossiers::first();
+
+        $carbon_created_at = Carbon::parse($dossier->d_created_at);
+        $carbon_today = Carbon::today();
+
+        return view('carbon',compact('agences','dossiers','carbon_created_at','carbon_today'));
     }
     // Insertion des données en bdd
     public function store(Request $request)
