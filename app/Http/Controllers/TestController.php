@@ -9,13 +9,6 @@ use Carbon\Carbon;
 
 class TestController extends Controller
 {
-    public function showBelongsTo()
-    {
-        $agences = Agences::all();
-        //Liste des dossiers sans les softDeletes
-        $dossiers = Dossiers::all();
-        return view('belongsto',compact('agences','dossiers'));
-    }
     public function showSoftDelete()
     {
         $agences = Agences::all();
@@ -25,6 +18,14 @@ class TestController extends Controller
         $dossiers_soft_delete =  Dossiers::onlyTrashed()->get();
         return view('dossiers',compact('agences','dossiers','dossiers_soft_delete'));
     }
+    public function showBelongsTo()
+    {
+        $agences = Agences::all();
+        //Liste des dossiers sans les softDeletes
+        $dossiers = Dossiers::all();
+        return view('belongsto',compact('agences','dossiers'));
+    }
+    // Insertion des données en bdd
     public function store(Request $request)
     {
         $dossier = new Dossiers();

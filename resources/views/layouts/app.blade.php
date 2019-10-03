@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Page - @yield('title')</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
-        <script src="{{ asset('js/app.js') }}" type="text/js"></script>
+        <script src="{{ asset('js/app.js') }}" type="text/js"></script>      
     </head>
     <body>
         <nav class="navbar navbar-dark bg-dark">

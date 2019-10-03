@@ -31,6 +31,7 @@ class Dossiers extends Model
     // Le dossier appartient à l'agence
     public function agences() 
     {
+        // On relie la clé étrangère de dossiers à l'id de l'agence et eloquent fait le match
         return $this->belongsTo(Agences::class,'d_agence_id');
     } 
 }

@@ -34,33 +34,40 @@
                   </form>
               </div>
             </div>
-            </div>
+          </div>
         </div>
         <br>
-        <div class="row justify-content-md-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <h5 class="card-header">BelongsTo</h5>
-                    <div class="card-body">
-                      <h5 class="card-title">Exemple du Model Dossier</h5>
-                      <p class="card-text">
-                        Données venant de la table dossiers avec sa clé étrangère d_agence_id
-                        <ul>
-                            @foreach ($dossiers as $dossier )
-                            <li>{{$dossier->d_agence_id}} : sans relation, $dossier->d_agence_id</li>
-                            <li>{{$dossier->agences->ag_nom}} : avec relation, dossier->agences->ag_nom</li>  
-                            <br> 
-                            @endforeach
-                        </ul>
-                      </p>
-                      <p class="card-text">
+          <div class="row justify-content-md-center">
+              <div class="col-md-8">
+                  <div class="card">
+                      <h5 class="card-header">BelongsTo entre la Table Dossiers et Agences</h5>
+                      <div class="card-body">
+                        <h5 class="card-title">Exemple du Model Dossier</h5>
+                        <p class="card-text">
+                          Données venant de la table dossiers avec sa clé étrangère d_agence_id
+                          <ul>
+                              @foreach ($dossiers as $dossier )
+                              <li>{{$dossier->d_agence_id}} : sans relation, $dossier->d_agence_id</li>
+                              <li>{{$dossier->agences->ag_nom}} : avec relation, <b>dossier->agences->ag_nom</b></li>  
+                              <br> 
+                              @endforeach
+                          </ul>
+                        </p>
+                        <p class="card-text">
+                          <p>
+      
+                            <a class="btn btn-outline-primary" href="vscode://file/C:\Users\lmaltret\Documents\EloquentModelsCarbon\app\Dossiers.php:32" role="button" type="submit">Voir Model Dossier</a>
+                          </p>
+                          @include('dump.dd',[
+                            'collections'=>$dossiers
+                          ])
+                        </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
 
-                      </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
 @endsection
 
          
