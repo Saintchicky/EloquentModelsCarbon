@@ -25,5 +25,6 @@ Route::get('/belongsto','TestController@showBelongsTo')->name('show.belongsto');
 // Carbon
 
 Route::get('/carbon','TestController@showCarbon')->name('show.carbon');
+Route::post('/carbon/store', 'TestController@storeDate')->name('store.date');
 
 

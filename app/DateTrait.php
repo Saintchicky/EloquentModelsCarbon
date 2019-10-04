@@ -8,7 +8,7 @@ trait DateTrait
 {
     // ReFormarter la date avec un accessor
     // Mettre entre le get____________Attribute le nom de la nouvelle variable modifiée
-    // En Mettant chaque Mot avec une Majuscule pour faire par exemple : dossier_created_at
+    // En Mettant chaque Mot avec une Majuscule pour faire par exemple : format_created
     // C'est une méthode d'affichage
     public function getFormatCreatedAtAttribute()
     {
