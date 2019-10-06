@@ -21,6 +21,9 @@ class CreateDossiersTable extends Migration
             $table->foreign('d_agence_id')->references('ag_id')->on('agences')->onDelete('set null');
             $table->timestamp('d_created_at')->nullable();
             $table->timestamp('d_updated_at')->nullable();
+            $table->date('d_date_deb')->nullable();
+            $table->text('d_date_fin')->nullable();
+            $table->text('d_serialize')->nullable();
         });
     }
 
