@@ -34,7 +34,7 @@ class TestController extends Controller
         $agences = Agences::all();
         // Liste des dossiers sans les softDeletes
         $dossiers = Dossiers::all();
-        $dossier = Dossiers::first();
+        $dossier = Dossiers::where('d_prenom','Doe')->first();
        
         
         // Operateur de comparaison Carbon
@@ -58,6 +58,8 @@ class TestController extends Controller
         // Comparaison entre date d'aujourd'hui et date de création
         if($carbon_today->gt($carbon_created_at)){
             $resultDateGt = "La date d'aujourd'hui est plus grande que celle crée en base";
+        }else{
+            $resultDateGt ="La date d'aujourd'hui n'est pas aussi grande que celle crée";
         }
         if($carbon_today->lt($carbon_created_at)){
             $resultDateLt = "La date d'aujourd'hui est inférieure à celle crée en base";
