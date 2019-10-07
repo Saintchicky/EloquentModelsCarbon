@@ -20,6 +20,7 @@
                 <div class="card-body">
                   <h5 class="card-title">La clé étrangère appartient à</h5>
                   <p class="card-text">Fais la relation entre la table possedant une clé étrangère et la table de référence</p>
+                  <p class="card-text">En bonus, $casts</p>
                   <a class="btn btn-outline-primary" href="{{route('show.belongsto')}}" role="button" type="submit">Voir Relation</a>
                 </div>
         </div>

@@ -9,7 +9,7 @@
       <div class="card-body">
         <p class="card-text">
             <ul>
-                <li>Formater une date <a class="btn btn-primary" href="vscode://file/C:\Users\lmaltret\Documents\EloquentModelsCarbon\app\Dossiers.php:26" role="button" type="submit">Voir l'accessor</a></li>
+                <li>Formater une date <a class="btn btn-primary" href="vscode://file/C:\Users\lmaltret\Documents\EloquentModelsCarbon\app\DateTrait.php:13" role="button" type="submit">Voir l'accessor</a></li>
                     <ul>
                     @foreach ($dossiers as $dossier)
                         @if ($loop->first)
@@ -21,7 +21,7 @@
                     @endforeach
                     </ul>
                 <br>
-                <li>Crée depuis <a class="btn btn-primary" href="vscode://file/C:\Users\lmaltret\Documents\EloquentModelsCarbon\app\Dossiers.php:29" role="button" type="submit">Voir l'accessor</a></li>
+                <li>Crée depuis <a class="btn btn-primary" href="vscode://file/C:\Users\lmaltret\Documents\EloquentModelsCarbon\app\DateTrait.php:19" role="button" type="submit">Voir l'accessor</a></li>
                     <ul>
                     @foreach ($dossiers as $dossier)
                      

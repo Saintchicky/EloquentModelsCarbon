@@ -15,7 +15,7 @@ class Dossiers extends Model
     protected $primaryKey = 'd_id';
     // Renseigner les champs de la table pour utiliser la méthode fill()
     protected $fillable = [
-        'd_nom','d_prenom','d_agence_id','d_date_deb','d_date_fin'
+        'd_nom','d_prenom','d_agence_id','d_date_deb','d_date_fin','d_serialize'
     ];
     // Déclarer lec colonnes dates pour Eloquent
     protected $dates = ['d_created_at', 'd_updated_at','d_deleted_at','d_date_deb'];

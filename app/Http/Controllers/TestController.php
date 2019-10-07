@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Agences;
 use App\Dossiers;
@@ -13,12 +14,14 @@ class TestController extends Controller
     public function showSoftDelete()
     {
         $agences = Agences::all();
+        // Liste avec et sans les softDeletes
+        $dossiers_tout = Dossiers::withTrashed()->get();
         //Liste des dossiers sans les softDeletes
-        $dossiers = Dossiers::all();
+        $dossiers_sans_soft_delete = Dossiers::all();
         //Liste des dossiers avec les softDeletes
         $dossiers_soft_delete =  Dossiers::onlyTrashed()->get();
         // Equivalent du render du twig
-        return view('dossiers',compact('agences','dossiers','dossiers_soft_delete'));
+        return view('dossiers',compact('agences','dossiers_tout','dossiers_sans_soft_delete','dossiers_soft_delete'));
     }
     public function showBelongsTo()
     {
@@ -102,6 +105,17 @@ class TestController extends Controller
         $dossier->save();
         //Récupère la requête en Log
         $queries = DB::getQueryLog();
+       
+     foreach($queries as $db){
+
+        File::append(
+            storage_path('/logs/query.log'),
+            $db['query'] . ' ["' . implode('","', $db['bindings']) . '"]' . PHP_EOL
+        );
+     }
+            
+
+       
         // Envoi en message dans view Carbon
         return back()->with('success',json_encode($queries));
     }

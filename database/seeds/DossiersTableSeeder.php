@@ -50,7 +50,8 @@ class DossiersTableSeeder extends Seeder
             'd_created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
             'd_updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
             'd_date_deb'=>Carbon::now()->format('Y-m-d'),
-            'd_date_fin'=>Carbon::now()->addDays(29)->format('d/m/Y')
+            'd_date_fin'=>Carbon::now()->addDays(29)->format('d/m/Y'),
+            'd_deleted_at'=>Carbon::now()->format('Y-m-d H:i:s'),
         ]);
     }
 }

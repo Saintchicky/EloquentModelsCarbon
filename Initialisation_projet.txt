@@ -4,6 +4,9 @@
 4. copier coller .env.exemple et renommer en .env
 5. Renseigner le nom de la base de donnée et mdp
 6. Faire un 'php artisan key:generate' pour générer une clé projet
-7. Faire un 'php artisan migrate' (si première fois pour créer les tables)
-8. 'php artisan db:seed --class=AgencesTableSeeder' pour insérer des données ds la table AgencesTableSeeder
+7. Faire un 'php artisan migrate' (si première fois pour créer les tables) =  Création de la BDD ds PhpMyAdmin
+8. 'php artisan db:seed --class=DatabaseSeeder' pour insérer des données ds la table AgencesTableSeeder et DossiersTableSeeder
 9. php artisan serve pour lancer l'application
+
+10. Bonus: Tester la création de fausses données : 'php artisan db:seed --class=UsersTableSeeder' grâce à UserFactory.php qui est appelé dans UsersTableSeeder,
+je peux créer 10 faux utilisateurs
