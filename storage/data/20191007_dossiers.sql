@@ -1,0 +1,1 @@
+insert into `dossiers` (`d_nom`, `d_prenom`, `d_date_deb`, `d_date_fin`, `d_agence_id`, `d_updated_at`, `d_created_at`) values ('MALBERG', 'Méline', '2019-10-10 17:46:08', '17/10/2019', '2', '2019-10-07 17:46:08', '2019-10-07 17:46:08');

@@ -105,13 +105,29 @@ class TestController extends Controller
         $dossier->save();
         //Récupère la requête en Log
         $queries = DB::getQueryLog();
+        $table_name = $dossier->getTable();
+        $today = Carbon::today()->format('Ymd');
+        $today = '20191008';
        
-     foreach($queries as $db){
-
+        foreach($queries as $db){
+            $query = $db['query'];
+            $bindings = $db['bindings'];
+            // Retire les ? de la query pour ajouter les valeurs
+            $arr = explode('?',$query);
+            $res = '';
+        foreach($arr as $idx => $ele){
+            if($idx < count($arr) - 1){
+                $res = $res.$ele."'".$bindings[$idx]."'";
+            }
+        }
+        $res = $res.$arr[count($arr) -1];
+        // Si même nom fichier il ajoute, sinon il en crée un nouveau
         File::append(
-            storage_path('/logs/query.log'),
-            $db['query'] . ' ["' . implode('","', $db['bindings']) . '"]' . PHP_EOL
+            storage_path('data/'.$today.'_patch_'.$table_name.'.sql'),
+            $res.';'. PHP_EOL
         );
+        
+        
      }
             
 
