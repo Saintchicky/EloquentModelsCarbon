@@ -107,7 +107,7 @@ class TestController extends Controller
         $queries = DB::getQueryLog();
         $table_name = $dossier->getTable();
         $today = Carbon::today()->format('Ymd');
-        $today = '20191008';
+       
        
         foreach($queries as $db){
             $query = $db['query'];
