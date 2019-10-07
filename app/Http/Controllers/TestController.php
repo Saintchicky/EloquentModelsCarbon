@@ -122,10 +122,21 @@ class TestController extends Controller
         }
         $res = $res.$arr[count($arr) -1];
         // Si même nom fichier il ajoute, sinon il en crée un nouveau
-        File::append(
-            storage_path('data/'.$today.'_patch_'.$table_name.'.sql'),
-            $res.';'. PHP_EOL
-        );
+        $path =  app_path('data/'.$today.'_patch_'.$table_name.'.sql');
+        if(!file_exists($path)){
+            $first =  'insert Into Test;'. PHP_EOL .$res.';'. PHP_EOL.'insert Into Fin;'. PHP_EOL;
+            File::prepend(app_path('data/'.$today.'_patch_'.$table_name.'.sql'),
+            $first); //.PHP_EOL à la ligne
+            
+        }else{
+            File::append(
+                app_path('data/'.$today.'_patch_'.$table_name.'.sql'),
+                $res.';'. PHP_EOL
+            );
+        }
+           
+        
+       
         
         
      }
