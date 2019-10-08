@@ -49,22 +49,20 @@ class TestController extends Controller
         // lte() less than or equals
 
         // Doc Carbon https://carbon.nesbot.com/docs/
-    
- 
-
-        // Format date dans la base avec DATETIME "Y-m-d H:i:s"
-
+  
+        // Exemple de date format Carbon pour la vue, $dossier->d_created_at vient de la bdd mais n'a pas
+        // besoin d'être formaté
 
         $carbon_created_at = Carbon::parse($dossier->d_created_at);
         // Récupère la date d'aujourd'hui
         $carbon_today = Carbon::today();
         // Comparaison entre date d'aujourd'hui et date de création
-        if($carbon_today->gt($carbon_created_at)){
+        if($carbon_today->gt($dossier->d_created_at)){
             $resultDateGt = "La date d'aujourd'hui est plus grande que celle crée en base";
         }else{
             $resultDateGt ="La date d'aujourd'hui n'est pas aussi grande que celle crée";
         }
-        if($carbon_today->lt($carbon_created_at)){
+        if($carbon_today->lt($dossier->d_created_at)){
             $resultDateLt = "La date d'aujourd'hui est inférieure à celle crée en base";
         }else{
             $resultDateLt = "La date d'aujourd'hui est plus grande que celle crée en base";
@@ -103,46 +101,58 @@ class TestController extends Controller
         // Prend toutes les fillables déclarées
         $dossier->fill($request->all());
         $dossier->save();
+
         //Récupère la requête en Log
         $queries = DB::getQueryLog();
+        // Obtenir le nom de la table
         $table_name = $dossier->getTable();
         $today = Carbon::today()->format('Ymd');
        
-       
+        // Génerer un patch SQL
         foreach($queries as $db){
             $query = $db['query'];
             $bindings = $db['bindings'];
             // Retire les ? de la query pour ajouter les valeurs
             $arr = explode('?',$query);
             $res = '';
-        foreach($arr as $idx => $ele){
-            if($idx < count($arr) - 1){
-                $res = $res.$ele."'".$bindings[$idx]."'";
+            foreach($arr as $idx => $ele){
+                if($idx < count($arr) - 1){
+                    $res = $res.$ele."'".$bindings[$idx]."'";
+                    }
             }
         }
+        // Requête Prête
         $res = $res.$arr[count($arr) -1];
-        // Si même nom fichier il ajoute, sinon il en crée un nouveau
+        
         $path =  app_path('data/'.$today.'_patch_'.$table_name.'.sql');
+        // Si le fichier n'existe pas on le crée
         if(!file_exists($path)){
-            $first =  'insert Into Test;'. PHP_EOL .$res.';'. PHP_EOL.'insert Into Fin;'. PHP_EOL;
+            $first =  'insert Into Début;'. PHP_EOL .$res.';'. PHP_EOL.'insert Into Fin;'. PHP_EOL;
             File::prepend(app_path('data/'.$today.'_patch_'.$table_name.'.sql'),
             $first); //.PHP_EOL à la ligne
             
         }else{
+            // On ouvre le fichier en tableau
+            $lines = file(app_path('data/'.$today.'_patch_'.$table_name.'.sql'));
+            // on cherche la dernière ligne
+            $last = sizeof($lines) - 1 ; 
+            // On efface la dernière ligne
+            unset($lines[$last]); 
+            // On ouvre le fichier en écriture seule (paramètre,'w')
+            $fp = fopen(app_path('data/'.$today.'_patch_'.$table_name.'.sql'),'w');
+            // On écrase et on écrit
+            fwrite($fp, implode('', $lines));
+            // On ferme le fichier
+            fclose($fp);
+            // On ajoute la requête supplémentaire avec celle de fin
+            $add = $res.';'. PHP_EOL.'insert Into Fin;'. PHP_EOL;
+            // Ajoute à la ligne suivante
             File::append(
                 app_path('data/'.$today.'_patch_'.$table_name.'.sql'),
-                $res.';'. PHP_EOL
+                $add
             );
         }
-           
-        
-       
-        
-        
-     }
-            
 
-       
         // Envoi en message dans view Carbon
         return back()->with('success',json_encode($queries));
     }

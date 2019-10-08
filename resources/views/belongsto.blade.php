@@ -71,7 +71,7 @@
                         <h5 class="card-title">Données Sérializer et Désérializer avec la propriété $casts dans model</h5>
                         <p class="card-text">
                             protected $casts = ['d_serialize' => 'array']; 
-                            <br>Il faut renseigner la varible qu'on souhaite sérializer et le type de sorti
+                            <br>Il faut renseigner la variable qu'on souhaite sérializer et le type de sorti
                             <div class="card">
                                 @include('dump.dd',[
                                   'collections'=>$dossier_seria

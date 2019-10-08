@@ -24,6 +24,17 @@
                   <a class="btn btn-outline-primary" href="{{route('show.belongsto')}}" role="button" type="submit">Voir Relation</a>
                 </div>
         </div>
+        <div class="card">
+            <div class="card-header">
+             Relation N:N entre Trois tables "BelongsToMany"
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">La clé étrangère appartient à</h5>
+              <p class="card-text">Fais la relation entre la table possedant une clé étrangère et la table de référence</p>
+              <p class="card-text">En bonus, $casts</p>
+              <a class="btn btn-outline-primary" href="{{route('show.manyto')}}" role="button" type="submit">Voir Relation</a>
+            </div>
+        </div>
         <br>
         <div class="card">
             <div class="card-header">
@@ -32,7 +43,7 @@
             <div class="card-body">
               <h5 class="card-title">Formater et traitement des dates</h5>
               <p class="card-text">Permet de reformater une date, de faire des comparaisons et d'autres fonctions</p>
-              <p class="card-text">En bonus, Accessor et Mutator</p>
+              <p class="card-text">En bonus, Accessor -- Mutator et Générateur de Patch</p>
               <a class="btn btn-outline-primary" href="{{route('show.carbon')}}" role="button" type="submit">Voir Carbon</a>
             </div>
         </div>

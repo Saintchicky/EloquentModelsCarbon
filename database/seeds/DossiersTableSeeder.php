@@ -30,7 +30,8 @@ class DossiersTableSeeder extends Seeder
             'd_agence_id'=>rand(1,4),
             'd_created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
             'd_updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-            'd_date_deb'=>Carbon::now()->format('Y-m-d'),
+            // Soustrait des jours pour faire la comparaison ds le blade carbon
+            'd_date_deb'=>Carbon::now()->subDays(10)->format('Y-m-d'),
             'd_date_fin'=>Carbon::now()->addDays(29)->format('d/m/Y')
         ]);
         Dossiers::insert([

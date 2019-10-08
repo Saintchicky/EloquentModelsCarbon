@@ -50,9 +50,11 @@
                             <br>
                             <br>
                                 if($carbon_today->gt($carbon_created_at))
-                                <br> {
-                                <br>     $resultDateGt = "La date d'aujourd'hui est plus grande";
-                                <br> }
+                                <br>{
+                                <br>$resultDateGt = "La date d'aujourd'hui est plus grande";
+                                <br>}else{
+                                <br>$resultDateGt ="La date d'aujourd'hui n'est pas aussi grande que celle crée";
+                                <br>}
                            <br><b>Résulat =</b>  {{$resultDateGt}}
                         
                         </li>
@@ -102,7 +104,7 @@
                           <input type="date" name="d_date_deb" class="form-control" id="d_date_deb" placeholder="date-début">
                         </div>
                         <div class="form-group col-md-6">
-                          <label for="d_prenom">Date Fin (Colonne formatée en VARCHAR)</label>
+                          <label for="d_prenom">Date Fin (Colonne formatée en TEXT)</label>
                           <input type="text" name="d_date_fin" class="form-control" id="d_date_fin" placeholder="date-fin">
                         </div>
                     </div>
