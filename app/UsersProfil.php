@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UsersProfil extends Model
 {
-    protected $primaryKey = 'up_id';
+    // protected $primaryKey = 'up_id';
     protected $fillable = [
         'up_type'
     ];
@@ -16,6 +16,6 @@ class UsersProfil extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class)->withPivot('us_user_id');
+        return $this->belongsToMany(User::class,'users_settings');
     }
 }

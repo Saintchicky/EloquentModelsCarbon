@@ -9,8 +9,11 @@ class ManyToController extends Controller
 {
     public function show()
     {
-        $users = User::with('users_profils')->get();
-        dd($users);
+        $users = User::find(1);
+        foreach($users->users_profils as $profil){
+            dd($profil->up_type);
+        }
+       
         return view('manyto',compact('users'));
     }
 }

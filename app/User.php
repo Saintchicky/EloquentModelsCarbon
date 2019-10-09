@@ -2,19 +2,58 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
-class User extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable
 {
   
-    protected $primaryKey = 'id';
+        /**
+
+     * The attributes that are mass assignable.
+
+     *
+
+     * @var array
+
+     */
+
     protected $fillable = [
+
         'name', 'email', 'password',
+
     ];
+
+ 
+
+    /**
+
+     * The attributes that should be hidden for arrays.
+
+     *
+
+     * @var array
+
+     */
+
+    protected $hidden = [
+
+        'password', 'remember_token',
+
+    ];
+
+ 
+
+    /**
+
+     * The roles that belong to the user.
+
+     */
 
     
     public function users_profils()
     {
-        return $this->belongsToMany(UsersProfil::class)->withPivot('us_profil_id');
+        return $this->belongsToMany(UsersProfil::class,'users_settings','user_id','profil_id');
     }
 }
