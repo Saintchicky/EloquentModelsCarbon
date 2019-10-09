@@ -28,5 +28,7 @@ Route::get('/carbon','TestController@showCarbon')->name('show.carbon');
 Route::post('/carbon/store', 'TestController@storeDate')->name('store.date');
 
 Route::get('/manyto','ManyToController@show')->name('show.manyto');
+Route::post('/{id}/manyto','ManyToController@store')->name('store.manyto');
+Route::post('/{id}/updatemanyto','ManyToController@update')->name('update.manyto');
 
 

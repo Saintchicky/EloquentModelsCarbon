@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UsersProfil extends Model
 {
-    // protected $primaryKey = 'up_id';
+    protected $primaryKey = 'up_id';
     protected $fillable = [
         'up_type'
     ];
@@ -16,6 +16,7 @@ class UsersProfil extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class,'users_settings');
+        // Paramètre : public function belongsToMany($related, $table = null, $foreignKey = null, $otherKey = null, $relation = null)
+        return $this->belongsToMany(User::class,'users_settings','users_settings','us_user_id','us_profil_id')->withTimestamps();
     }
 }

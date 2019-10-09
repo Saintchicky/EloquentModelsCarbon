@@ -95,7 +95,7 @@ class TestController extends Controller
     }
     public function storeDate(Request $request)
     {
-        // Faire apparaître une requête par DB
+        // Point d'entrée scan pour le début de la requête
         \DB::connection()->enableQueryLog();
         $dossier = new Dossiers();
         // Prend toutes les fillables déclarées

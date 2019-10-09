@@ -26,12 +26,11 @@
         </div>
         <div class="card">
             <div class="card-header">
-             Relation N:N entre Trois tables "BelongsToMany"
+             Relation N:N entre deux tables "BelongsToMany" avec une table pivot
             </div>
             <div class="card-body">
               <h5 class="card-title">La clé étrangère appartient à</h5>
-              <p class="card-text">Fais la relation entre la table possedant une clé étrangère et la table de référence</p>
-              <p class="card-text">En bonus, $casts</p>
+              <p class="card-text">Fais la relation entre deux tables par l'intérmédiaire d'une table pivot</p>
               <a class="btn btn-outline-primary" href="{{route('show.manyto')}}" role="button" type="submit">Voir Relation</a>
             </div>
         </div>

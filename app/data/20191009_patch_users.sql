@@ -1,0 +1,17 @@
+insert Into Début;
+insert into `users_settings` (`us_profil_id`, `us_user_id`) values ('1', '1');
+insert into `users_settings` (`us_profil_id`, `us_user_id`) values ('2', '9');
+insert into `users_settings` (`us_profil_id`, `us_user_id`) values ('3', '7');
+insert into `users_settings` (`us_created_at`, `us_profil_id`, `us_updated_at`, `us_user_id`) values ('2019-10-09 10:31:13', '2', '2019-10-09 10:31:13', '4');
+insert into `users_settings` (`us_created_at`, `us_profil_id`, `us_updated_at`, `us_user_id`) values ('2019-10-09 10:32:00', '1', '2019-10-09 10:32:00', '5');
+insert into `users_settings` (`us_created_at`, `us_profil_id`, `us_updated_at`, `us_user_id`) values ('2019-10-09 13:16:22', '3', '2019-10-09 13:16:22', '1');
+insert into `users_settings` (`us_created_at`, `us_profil_id`, `us_updated_at`, `us_user_id`) values ('2019-10-09 13:17:11', '1', '2019-10-09 13:17:11', '3');
+insert into `users_settings` (`us_created_at`, `us_profil_id`, `us_updated_at`, `us_user_id`) values ('2019-10-09 13:25:03', '2', '2019-10-09 13:25:03', '1');
+insert into `users_settings` (`us_created_at`, `us_profil_id`, `us_updated_at`, `us_user_id`) values ('2019-10-09 13:26:08', '1', '2019-10-09 13:26:08', '1');
+insert into `users_settings` (`us_created_at`, `us_profil_id`, `us_updated_at`, `us_user_id`) values ('2019-10-09 13:28:18', '3', '2019-10-09 13:28:18', '1');
+insert into `users_settings` (`us_created_at`, `us_profil_id`, `us_updated_at`, `us_user_id`) values ('2019-10-09 13:31:30', '1', '2019-10-09 13:31:30', '1');
+insert into `users_settings` (`us_created_at`, `us_profil_id`, `us_updated_at`, `us_user_id`) values ('2019-10-09 13:31:37', '3', '2019-10-09 13:31:37', '5');
+update `users_settings` set `us_profil_id` = '2', `us_updated_at` = '2019-10-09 13:36:11' where `us_user_id` = '1' and `us_profil_id` in ('1');
+insert into `users_settings` (`us_created_at`, `us_profil_id`, `us_updated_at`, `us_user_id`) values ('2019-10-09 13:38:30', '1', '2019-10-09 13:38:30', '1');
+insert into `users_settings` (`us_created_at`, `us_profil_id`, `us_updated_at`, `us_user_id`) values ('2019-10-09 13:46:39', '1', '2019-10-09 13:46:39', '2');
+insert Into Fin;

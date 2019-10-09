@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'SoftDelete')
 @section('content')
-          <div class="col-md-8">
+        <div class="col-md-8">
             <div class="card">
               <div class="card-header">
                 Formulaire de souscription

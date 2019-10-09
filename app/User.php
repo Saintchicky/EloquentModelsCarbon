@@ -54,6 +54,7 @@ class User extends Authenticatable
     
     public function users_profils()
     {
-        return $this->belongsToMany(UsersProfil::class,'users_settings','user_id','profil_id');
+        // Paramètre : public function belongsToMany($related, $table = null, $foreignKey = null, $otherKey = null, $relation = null)
+        return $this->belongsToMany(UsersProfil::class,'users_settings','us_user_id','us_profil_id')->withTimestamps('us_created_at','us_updated_at');
     }
 }
