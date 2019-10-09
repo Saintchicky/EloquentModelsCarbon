@@ -29,12 +29,36 @@
                                 </select>
                           </div>
                       </div>
+                      <a class="btn btn-primary" href="vscode://file/C:\Users\lmaltret\Documents\EloquentModelsCarbon\config\app.php:109" role="button" type="submit">Changer Faker en Fr</a>
                       <button type="submit" id="form_sub" class="btn btn-primary float-right">Sauvegarder</button>
                   </form>
               </div>
               @include('dump.dd',[
                 'collections'=>$users
             ])
+            </div>
+          </div>
+          <br>
+          <div class="col-md-10">
+            <div class="card">
+              <div class="card-header">
+                Trie par Profil
+              </div>
+              <div class="card-body">
+                <ul>
+                  @foreach ($users as $user)
+                  <!-- $user->name si on place la variable ici on a tous les users-->
+                    @foreach ($user->users_profils as $profil)
+                    <!-- on a des users par profils-->
+                    <li>{{$user->name}}</li>
+                    <ul><li>{{$profil->up_type}}</li></ul>
+                    @endforeach
+                  @endforeach
+                </ul>
+                @foreach($profils_users as $ps)
+                @dump($ps)
+                @endforeach
+              </div>
             </div>
           </div>
           <br>
@@ -61,9 +85,9 @@
                                     <div class="form-group">
                                           <select id="us_profil_id" class="form-control" name="us_profil_id">
                                             @foreach ($profils as $profil)
-                                            @foreach($user->users_profils as $user_pro)
-                                              <option value="{{$profil->up_id}}" @if($user_pro->up_id == $profil->up_id)selected @endif>{{$profil->up_type}}</option>  
-                                            @endforeach
+                                              @foreach($user->users_profils as $user_pro)
+                                                <option value="{{$profil->up_id}}" @if($user_pro->up_id == $profil->up_id)selected @endif>{{$profil->up_type}}</option>  
+                                              @endforeach
                                             @endforeach
                                           </select>
                                     </div>

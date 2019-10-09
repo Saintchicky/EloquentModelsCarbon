@@ -66,8 +66,8 @@ return [
     | ahead and set this to a sensible default for you out of the box.
     |
     */
-
-    'timezone' => 'UTC',
+    // Pour bon créneau horaire
+    'timezone' => 'Europe/Paris',
 
     /*
     |--------------------------------------------------------------------------
@@ -107,6 +107,7 @@ return [
     */
 
     'faker_locale' => 'en_US',
+    //'faker_locale' => 'fr_FR',
 
     /*
     |--------------------------------------------------------------------------

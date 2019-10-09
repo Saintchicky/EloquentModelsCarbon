@@ -17,8 +17,9 @@ class ManyToController extends Controller
         // Le with permet de faire la relation avec la table users_profils
         $users = User::with('users_profils')->get();
         $profils = UsersProfil::all();
+        $profils_users = UsersProfil::with('users')->get();
         $user_unique = User::find(1);
-        return view('manyto',compact('users','profils','user_unique'));
+        return view('manyto',compact('users','profils','user_unique','profils_users'));
     }
     public function store(Request $request)
     {

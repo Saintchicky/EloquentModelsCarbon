@@ -17,6 +17,6 @@ class UsersProfil extends Model
     public function users()
     {
         // Paramètre : public function belongsToMany($related, $table = null, $foreignKey = null, $otherKey = null, $relation = null)
-        return $this->belongsToMany(User::class,'users_settings','users_settings','us_user_id','us_profil_id')->withTimestamps();
+        return $this->belongsToMany(User::class,'users_settings','us_user_id','us_profil_id')->withTimestamps('us_created_at','us_updated_at');
     }
 }
