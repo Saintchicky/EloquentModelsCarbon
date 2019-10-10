@@ -13,6 +13,3 @@ je peux créer 10 faux utilisateurs
 10. php artisan serve pour lancer l'application
 11. Dans le dossier config->app.php changer la time zone en 'Europe/Paris' ligne 70. Et pour avoir des noms et prénoms fr dans la fakeFactory
 Changer la ligne 109 en 'fr_FR'
-12. Tester la création de fausses données : 'php artisan db:seed --class=UsersTableSeeder' grâce à UserFactory.php qui est appelé dans 
-database->seeds->UsersTableSeeder,
-je peux créer 10 faux utilisateurs
