@@ -23,12 +23,26 @@ class Dossiers extends Model
     const CREATED_AT = 'd_created_at';
     const UPDATED_AT = 'd_updated_at';
     const DELETED_AT = 'd_deleted_at';
+    //----------------------------------------------------------------
 
     // Permet de serializer en Json lors de l'insert ds la bdd
     // Lors de l'affichage, Eloquent convertit le serialize en array
     protected $casts = [
         'd_serialize' => 'array',
     ];
+    //The supported cast types are: integer, real, float, double, decimal:<digits>, string, boolean, object, array, collection, date, datetime, and timestamp. 
+    //When casting to decimal, you should define the number of digits, eg. decimal:2
+    // ex:  'is_admin' => 'boolean',
+
+    /* $casts DATE :
+    
+    When using the date or datetime cast type, you may specify the date's format. 
+    This format will be used when the model is serialized to an array or JSON:
+    protected $casts = [
+    'created_at' => 'datetime:Y-m-d',
+    ];    */
+
+
     //----------------------------------------------------------------
     // Pour Eviter la duplication de code on peut passer par un trait avec des méthodes Génériques pour le formatage des dates
     protected function dateFromModel()
